@@ -1,0 +1,25 @@
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 10px;
+  min-height: 100vh;
+  background-color: white;
+}
+.grid-item {
+  background-color: lightgray;
+  border: 1px solid black;
+  /* padding: 20px; */
+  /* font-size: 30px; */
+  text-align: center;
+}
+
+.product-list{
+  display: grid;
+  grid-template-columns: auto auto auto;
+ 
+}
+.product {
+  text-align:  center;
+  width: 108px;
+}
