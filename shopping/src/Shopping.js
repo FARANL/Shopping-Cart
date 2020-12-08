@@ -26,6 +26,7 @@ function Shopping() {
   const Add = () => {
     let arr = [];
     let total = 0;
+    let taxTotal = 0
     for (let i = 0; i < product.length; i++) {
       let selected = document.getElementById(product[i].name);
       let index = selected.selectedIndex;
@@ -45,10 +46,11 @@ function Shopping() {
     }
 
     total = Math.round(total * 100) / 100;
-    console.log(total, arr);
+    taxTotal = Math.round(total * 1.125 * 100) / 100
     setCart({
       list: arr,
       total: total,
+      taxTotal:taxTotal
     });
   };
   return (
@@ -96,12 +98,13 @@ function Shopping() {
             <div className="product-list">
               <div className="product">{item.name}</div>
               <div className="product">x{item.quantity}</div>
-              <div className="product">${item.subtotal}</div>
+              <div className="product">${(item.subtotal).toFixed(2)}</div>
             </div>
           )):null}
           {cart.total ? <div style={{textAlign:'right'}}>
-          <p>Total price(before tax): {cart.total}</p>
-          <p>Total price(after tax): {Math.round(cart.total * 1.125 * 100) / 100}</p>
+          <p>Total price(before tax): ${cart.total.toFixed(2)}</p>
+          <p>Total price(after tax): ${cart.taxTotal.toFixed(2)}</p>
+          <p>Total sales tax amount: ${(Math.round((cart.taxTotal-cart.total)*100)/100).toFixed(2)}</p>
           <p>Sales tax rate : 12.5%</p>
           </div> : null}
         </div>
