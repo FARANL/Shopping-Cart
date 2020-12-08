@@ -3,5 +3,7 @@
 
 # a) cd into shopping directory
     cd shopping
-# b) run npm start to start server
+# b) run npm install to install dependencies
+    npm install
+# c) run npm start to start server
     npm start
